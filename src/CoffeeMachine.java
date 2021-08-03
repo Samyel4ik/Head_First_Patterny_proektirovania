@@ -8,17 +8,48 @@ public class CoffeeMachine {
         this.listDrink = listDrink;
     }
 
+
     public void setListComponent(List<String> listComponent) {
         this.listComponent = listComponent;
     }
-    public List<String> newListWithSupplementedDrinks(String newDrink){
+
+    public static Beverage selectComponent(String sss1, Beverage beverage) {
+        if (sss1.equalsIgnoreCase("Soy")) {
+            return new Soy(beverage);
+        }
+        if (sss1.equalsIgnoreCase("Whip")) {
+            return new Whip(beverage);
+        }
+        if (sss1.equalsIgnoreCase("Mocha")) {
+            return new Mocha(beverage);
+        }
+        return null;
+
+    }
+
+    public static Beverage selectDrink(String sss) {
+        if (sss.equalsIgnoreCase("Decaf")) {
+            return new Decaf();
+        }
+        if (sss.equalsIgnoreCase("Espresso")) {
+            return new Espresso();
+        }
+        if (sss.equalsIgnoreCase("DarkRoast")) {
+            return new DarkRoast();
+        }
+        return null;
+    }
+
+    public List<String> newListWithSupplementedDrinks(String newDrink) {
         this.listDrink.add(newDrink);
         return this.listDrink;
     }
-    public List<String> newListWithAddedComponents(String newComponent){
+
+    public List<String> newListWithAddedComponents(String newComponent) {
         this.listComponent.add(newComponent);
         return this.listComponent;
     }
+
     public void serveAGlass() {
     }
 
