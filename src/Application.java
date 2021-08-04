@@ -15,9 +15,9 @@ public class Application {
 
         coffeeMachine.serveAGlass();
 
-        Beverage beverage = selectDrink(coffeeMachine);
+        Beverage beverage = CoffeeMachine.purchaseDrink(selectDrink(coffeeMachine));
 
-        beverage = selectComponent(coffeeMachine, beverage);
+        beverage = CoffeeMachine.purchaseComponent(selectComponent(coffeeMachine), beverage);
 
         coffeeMachine.giveAStick();
         coffeeMachine.allCoffee(beverage);
@@ -32,18 +32,18 @@ public class Application {
         System.out.println("Остаток воды в машине " + coffeeMachine.getWater() + "  Остаток кофе в машине " + coffeeMachine.getCoffee());
     }
 
-    public static Beverage selectComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
+    public static String selectComponent(CoffeeMachine coffeeMachine) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите дополнение к напитку из предложенных " + coffeeMachine.getListComponent());
         String nameComponent = scanner.nextLine();
-        return CoffeeMachine.purchaseComponent(nameComponent, beverage);
+        return nameComponent;
     }
 
-    public static Beverage selectDrink(CoffeeMachine coffeeMachine) {
+    public static String selectDrink(CoffeeMachine coffeeMachine) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите напиток из предложенных " + coffeeMachine.getListDrink());
         String nameDrink = scanner.nextLine();
-        return CoffeeMachine.purchaseDrink(nameDrink);
+        return nameDrink;
     }
 
     public static void drinkInfo(Beverage beverage) {
