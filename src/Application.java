@@ -6,32 +6,39 @@ public class Application {
     public static void main(String[] args) {
 
         CoffeeMachine coffeeMachine = new CoffeeMachine();
+
         coffeeMachine.setListComponent(listComp());
+
         coffeeMachine.setListDrink(list());
-        coffeeMachine.getClass();
-        Beverage beverage = purchaseDrink(coffeeMachine);
-        beverage = purchaseComponent(coffeeMachine, beverage);
+
         coffeeMachine.giveAStick();
+
+        Beverage beverage = selectDrink(coffeeMachine);
+
+        beverage = selectComponent(coffeeMachine, beverage);
+
+        coffeeMachine.giveAStick();
+
         drinkInfo(beverage);
-        
+
     }
 
     public static void drinkInfo(Beverage beverage) {
         System.out.println(beverage.getDescription() + " $" + beverage.cost());
     }
 
-    public static Beverage purchaseComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
+    public static Beverage selectComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите дополнение к напитку из предложенных " + coffeeMachine.getListComponent());
         String nameComponent = scanner.nextLine();
-        return CoffeeMachine.selectComponent(nameComponent, beverage);
+        return CoffeeMachine.purchaseComponent(nameComponent, beverage);
     }
 
-    public static Beverage purchaseDrink(CoffeeMachine coffeeMachine) {
+    public static Beverage selectDrink(CoffeeMachine coffeeMachine) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выберите напиток из предложенных " + coffeeMachine.getListDrink());
         String nameDrink = scanner.nextLine();
-        return CoffeeMachine.selectDrink(nameDrink);
+        return CoffeeMachine.purchaseDrink(nameDrink);
     }
 
     public static List<String> list() {

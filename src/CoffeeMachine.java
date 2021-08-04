@@ -13,7 +13,7 @@ public class CoffeeMachine {
         this.listComponent = listComponent;
     }
 
-    public static Beverage selectComponent(String sss1, Beverage beverage) {
+    public static Beverage purchaseComponent(String sss1, Beverage beverage) {
         if (sss1.equalsIgnoreCase("Soy")) {
             return new Soy(beverage);
         }
@@ -27,7 +27,7 @@ public class CoffeeMachine {
 
     }
 
-    public static Beverage selectDrink(String sss) {
+    public static Beverage purchaseDrink(String sss) {
         if (sss.equalsIgnoreCase("Decaf")) {
             return new Decaf();
         }
@@ -40,17 +40,7 @@ public class CoffeeMachine {
         return null;
     }
 
-    public List<String> newListWithSupplementedDrinks(String newDrink) {
-        this.listDrink.add(newDrink);
-        return this.listDrink;
-    }
-
-    public List<String> newListWithAddedComponents(String newComponent) {
-        this.listComponent.add(newComponent);
-        return this.listComponent;
-    }
-
-    public void serveAGlass() {
+     public void serveAGlass() {
     }
 
     public void giveAStick() {
