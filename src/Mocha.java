@@ -11,4 +11,10 @@ public class Mocha extends CondimentDecorator {
     public double cost (){
         return 0.50 + beverage.cost();
     }
+    public int theAmountOfWaterInTheDrink (){
+        return 0;
+    }
+    public int theAmountOfCoffeeInTheDrink(){
+        return 0;
+    }
 }

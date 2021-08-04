@@ -6,4 +6,7 @@ public abstract class Beverage {
     }
     public abstract double cost();
 
+    public abstract int theAmountOfWaterInTheDrink ();
+    public abstract int theAmountOfCoffeeInTheDrink ();
+
 }

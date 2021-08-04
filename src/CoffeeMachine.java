@@ -1,14 +1,31 @@
 import java.util.List;
-import java.util.Scanner;
+
 
 public class CoffeeMachine {
     List<String> listDrink;
     List<String> listComponent;
+    int water;
+    int coffee;
+
+    public void setWater(int water) {
+        this.water = water;
+    }
+
+    public void setCoffee(int coffee) {
+        this.coffee = coffee;
+    }
 
     public void setListDrink(List<String> listDrink) {
         this.listDrink = listDrink;
     }
 
+    public int getWater() {
+        return water;
+    }
+
+    public int getCoffee() {
+        return coffee;
+    }
 
     public void setListComponent(List<String> listComponent) {
         this.listComponent = listComponent;
@@ -28,18 +45,14 @@ public class CoffeeMachine {
 
     }
 
-    public static Beverage selectComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите дополнение к напитку из предложенных " + coffeeMachine.getListComponent());
-        String nameComponent = scanner.nextLine();
-        return purchaseComponent(nameComponent, beverage);
+    public int allCoffee(Beverage beverage) {
+        return this.coffee= this.coffee - beverage.theAmountOfCoffeeInTheDrink();
+
     }
 
-    public static Beverage selectDrink(CoffeeMachine coffeeMachine) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите напиток из предложенных " + coffeeMachine.getListDrink());
-        String nameDrink = scanner.nextLine();
-        return purchaseDrink(nameDrink);
+    public int allWater(Beverage beverage) {
+        return  this.water = this.water - beverage.theAmountOfWaterInTheDrink();
+
     }
 
     public static Beverage purchaseDrink(String sss) {
@@ -52,6 +65,7 @@ public class CoffeeMachine {
         if (sss.equalsIgnoreCase("DarkRoast")) {
             return new DarkRoast();
         }
+
         return null;
     }
 
@@ -74,6 +88,8 @@ public class CoffeeMachine {
         return "CoffeeMachine{" +
                 "listDrink=" + listDrink +
                 ", listComponent=" + listComponent +
+                ", water=" + water +
+                ", coffee=" + coffee +
                 '}';
     }
 }
