@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Scanner;
 
 public class CoffeeMachine {
     List<String> listDrink;
@@ -27,6 +28,20 @@ public class CoffeeMachine {
 
     }
 
+    public static Beverage selectComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите дополнение к напитку из предложенных " + coffeeMachine.getListComponent());
+        String nameComponent = scanner.nextLine();
+        return purchaseComponent(nameComponent, beverage);
+    }
+
+    public static Beverage selectDrink(CoffeeMachine coffeeMachine) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Выберите напиток из предложенных " + coffeeMachine.getListDrink());
+        String nameDrink = scanner.nextLine();
+        return purchaseDrink(nameDrink);
+    }
+
     public static Beverage purchaseDrink(String sss) {
         if (sss.equalsIgnoreCase("Decaf")) {
             return new Decaf();
@@ -40,7 +55,7 @@ public class CoffeeMachine {
         return null;
     }
 
-     public void serveAGlass() {
+    public void serveAGlass() {
     }
 
     public void giveAStick() {

@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class Application {
     public static void main(String[] args) {
@@ -13,9 +13,9 @@ public class Application {
 
         coffeeMachine.giveAStick();
 
-        Beverage beverage = selectDrink(coffeeMachine);
+        Beverage beverage = CoffeeMachine.selectDrink(coffeeMachine);
 
-        beverage = selectComponent(coffeeMachine, beverage);
+        beverage = CoffeeMachine.selectComponent(coffeeMachine, beverage);
 
         coffeeMachine.giveAStick();
 
@@ -27,19 +27,6 @@ public class Application {
         System.out.println(beverage.getDescription() + " $" + beverage.cost());
     }
 
-    public static Beverage selectComponent(CoffeeMachine coffeeMachine, Beverage beverage) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите дополнение к напитку из предложенных " + coffeeMachine.getListComponent());
-        String nameComponent = scanner.nextLine();
-        return CoffeeMachine.purchaseComponent(nameComponent, beverage);
-    }
-
-    public static Beverage selectDrink(CoffeeMachine coffeeMachine) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Выберите напиток из предложенных " + coffeeMachine.getListDrink());
-        String nameDrink = scanner.nextLine();
-        return CoffeeMachine.purchaseDrink(nameDrink);
-    }
 
     public static List<String> list() {
         List<String> list = new ArrayList<>();
